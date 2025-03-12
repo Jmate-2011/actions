@@ -23,6 +23,6 @@ jobs:
     - name: Configure wings
       run: cd /etc/pterodactyl && sudo wings configure --panel-url https://shitty-panel.hyghj.eu.org --token ptla_kPQqzOelJVXUAr9xLZHoYz21OCgb4hMYiaqkMrcKwk5 --node 3
     - name: Set up SSL certs
-      run: mkdir -p /etc/letsencrypt/live/us1.play451isthebest.eu.org && cd /etc/letsencrypt/live/us1.play451isthebest.eu.org && openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 -subj "/C=NA/ST=NA/L=NA/O=NA/CN=Generic SSL Certificate" -keyout privkey.pem -out fullchain.pem
+      run: sudo mkdir -p /etc/letsencrypt/live/us1.play451isthebest.eu.org && cd /etc/letsencrypt/live/us1.play451isthebest.eu.org && openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 -subj "/C=NA/ST=NA/L=NA/O=NA/CN=Generic SSL Certificate" -keyout privkey.pem -out fullchain.pem
     - name: Run Wings
       run: sudo wings
