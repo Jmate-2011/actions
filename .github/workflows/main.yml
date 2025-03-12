@@ -15,7 +15,7 @@ jobs:
 
     steps:
     - name: Update and install packages
-      run: sudo su && apt update && apt install curl wget -y && curl -sSL https://get.docker.com/ | CHANNEL=stable bash
+      run: sudo apt update && sudo apt install curl wget -y && curl -sSL https://get.docker.com/ | CHANNEL=stable bash
     - name: Install cloudflared
       run: curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && sudo dpkg -i cloudflared.deb && sudo cloudflared service install eyJhIjoiMWE1MTc4MTE0YTZjOWZmNDllMzZiNmMxNzVlOTZiYjkiLCJ0IjoiMzc2MWI1YzMtZTMwOC00ZjM4LThmYzItMjZhODY0MTNhOGZlIiwicyI6IllUWTNNVFUyTTJJdE1UWm1NQzAwTkdJM0xXRm1OR010TVRGbE16QTVPV1E0TkRjMCJ9
     - name: Install wings
