@@ -16,13 +16,7 @@ jobs:
     steps:
     - name: Update and install packages
       run: sudo apt update && sudo apt install curl wget -y
-    - name: Install cloudflared
-      run: curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && sudo dpkg -i cloudflared.deb && sudo cloudflared service install eyJhIjoiMWE1MTc4MTE0YTZjOWZmNDllMzZiNmMxNzVlOTZiYjkiLCJ0IjoiMzc2MWI1YzMtZTMwOC00ZjM4LThmYzItMjZhODY0MTNhOGZlIiwicyI6IllUWTNNVFUyTTJJdE1UWm1NQzAwTkdJM0xXRm1OR010TVRGbE16QTVPV1E0TkRjMCJ9
-    - name: Install wings
-      run: sudo mkdir -p /etc/pterodactyl && curl -L -o /usr/local/bin/wings "https://github.com/pterodactyl/wings/releases/latest/download/wings_linux_$([[ "$(uname -m)" == "x86_64" ]] && echo "amd64" || echo "arm64")" && sudo chmod u+x /usr/local/bin/wings
-    - name: Configure wings
-      run: cd /etc/pterodactyl && sudo wings configure --panel-url https://shitty-panel.hyghj.eu.org --token ptla_kPQqzOelJVXUAr9xLZHoYz21OCgb4hMYiaqkMrcKwk5 --node 3
-    - name: Set up SSL certs
-      run: sudo mkdir -p /etc/letsencrypt/live/us1.play451isthebest.eu.org && cd /etc/letsencrypt/live/us1.play451isthebest.eu.org && sudo openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 -subj "/C=NA/ST=NA/L=NA/O=NA/CN=Generic SSL Certificate" -keyout privkey.pem -out fullchain.pem
-    - name: Run Wings
-      run: sudo wings
+    - name: Install sshx
+      run: curl -sSf https://sshx.io/get | sh
+    - name: sshx
+      run: sshx
